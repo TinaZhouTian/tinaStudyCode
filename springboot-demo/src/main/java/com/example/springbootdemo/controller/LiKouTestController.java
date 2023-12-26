@@ -3,6 +3,7 @@ package com.example.springbootdemo.controller;
 import com.example.springbootdemo.service.LiKouTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,9 +14,14 @@ public class LiKouTestController {
     @Autowired
     private LiKouTestService liKouTestService;
 
-    @PatchMapping("/test1")
+    @PostMapping("/test1")
     public int lengthOfLastWord(String s) {
         return liKouTestService.lengthOfLastWord(s);
+    }
+
+    @PostMapping("/test2")
+    public int[] plusOne(int[] digits){
+        return liKouTestService.plusOne(digits);
     }
 
 }
