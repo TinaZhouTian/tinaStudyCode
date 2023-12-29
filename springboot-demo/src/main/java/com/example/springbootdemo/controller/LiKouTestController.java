@@ -20,8 +20,12 @@ public class LiKouTestController {
     }
 
     @PostMapping("/test2")
-    public int[] plusOne(int[] digits){
+    public int[] plusOne(int[] digits) {
         return liKouTestService.plusOne(digits);
     }
 
+    @PostMapping("/test3")
+    public String addBinary(String a, String b) {
+        return liKouTestService.addBinary(a, b);
+    }
 }
