@@ -70,7 +70,7 @@ public class LiKouTestServiceImpl implements LiKouTestService {
 //                //char字符运算与数形运算不同，char运算用到的是ASCII码,字符0-9的ASCII码：48-57;
 //                // 所以清楚了这点之后，我们便知道图中 - ‘0’，减去的是0的ASCII码（48）
 //                // 前面s.charAt（j）依次是s.charAt（1）、s.charAt（2）、s.charAt（3）……,
-//                // 就是字符串中的第一个字符，第二个字符……，字符串和数组相似，第一个字符对应的索引是0、第二个字符对应的索引是1……，
+//                // 就是字符串中的第一个字符，第二个字符……，字符串和数组相似，第一个字符对应的索引是0、第二个字符对应的索引是1……,
 //                // 而s.charAt（1）是1，对应的ASCII码为49，以此只有减去48，才能得到第一个数：1;
 //                sum += a.charAt(i--) - '0';
 //            }
