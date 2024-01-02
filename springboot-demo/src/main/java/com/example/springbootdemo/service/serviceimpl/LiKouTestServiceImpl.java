@@ -52,40 +52,68 @@ public class LiKouTestServiceImpl implements LiKouTestService {
 
     @Override
     //给你两个二进制字符串 a 和 b ，以二进制字符串的形式返回它们的和。
+    //String不可变字符串
+    //StringBuffer 可变字符串，效率低，线程安全
+    //StringBuilder 可变字符序列，效率高，线程不安全
+    //二进制算数：A：1100+ b:1010 = 10110
+//    public String addBinary(String a, String b) {
+//        StringBuffer sb = new StringBuffer();
+//        //获取数组最大下标
+//        int i = a.length() - 1;
+//        int j = b.length() - 1;
+//        int carry = 0;
+//        //说明a,bString不为null
+//        while (i >= 0 || j >= 0) {
+//            int sum = carry;
+//            if (i >= 0) {
+//                //charAt () 方法用于返回指定索引处的字符。 索引范围为从 0 到 length () - 1;
+//                //char字符运算与数形运算不同，char运算用到的是ASCII码,字符0-9的ASCII码：48-57;
+//                // 所以清楚了这点之后，我们便知道图中 - ‘0’，减去的是0的ASCII码（48）
+//                // 前面s.charAt（j）依次是s.charAt（1）、s.charAt（2）、s.charAt（3）……,
+//                // 就是字符串中的第一个字符，第二个字符……，字符串和数组相似，第一个字符对应的索引是0、第二个字符对应的索引是1……，
+//                // 而s.charAt（1）是1，对应的ASCII码为49，以此只有减去48，才能得到第一个数：1;
+//                sum += a.charAt(i--) - '0';
+//            }
+//            if (j >= 0) {
+//                sum += b.charAt(j--) - '0';
+//            }
+//            sb.insert(0, sum % 2);
+//            carry = sum / 2;
+//        }
+//        if (carry != 0) {
+//            sb.insert(0, carry);
+//        }
+//        return sb.toString();
+//    }
+
     public String addBinary(String a, String b) {
-        StringBuffer sb = new StringBuffer();
-        int i = a.length() - 1;
-        int j = b.length() - 1;
-        int carry = 0;
-        while (i >= 0 || j >= 0) {
-            int sum = carry;
-            if (i >= 0) {
-                sum += a.charAt(i--) - '0';
-            }
-            if (j >= 0) {
-                sum += b.charAt(j--) - '0';
-            }
-            sb.insert(0, sum % 2);
-            carry = sum / 2;
+        StringBuffer ans = new StringBuffer();
+        int ca = 0;
+        for(int i = a.length() - 1, j = b.length() - 1;i >= 0 || j >= 0; i--, j--) {
+            int sum = ca;
+            //charAt () 方法用于返回指定索引处的字符。 索引范围为从 0 到 length () - 1;
+            // char字符运算与数形运算不同，char运算用到的是ASCII码,字符0-9的ASCII码：48-57;
+            // 所以清楚了这点之后，我们便知道图中 - ‘0’，减去的是0的ASCII码（48）
+            // 前面s.charAt（j）依次是s.charAt（1）、s.charAt（2）、s.charAt（3）……,
+            // 就是字符串中的第一个字符，第二个字符……，字符串和数组相似，第一个字符对应的索引是0、第二个字符对应的索引是1……，
+            // 而s.charAt（1）是1，对应的ASCII码为49，以此只有减去48，才能得到第一个数：1;
+            sum += i >= 0 ? a.charAt(i) - '0' : 0;
+            sum += j >= 0 ? b.charAt(j) - '0' : 0;
+            //StringBuffer.append()追加的字符串在同一个内存地址 例如：aa,bb,cc-> aabbcc
+            //java中的算数运算符
+            //sum % 2对2取余，获取当前位数的值
+            ans.append(sum % 2);
+            //sum / 2对2取值，获取前进一位的值
+            ca = sum / 2;
         }
-        if (carry != 0) {
-            sb.insert(0, carry);
-        }
-        return sb.toString();
+        ans.append(ca == 1 ? ca : "");
+        //字符串实现反转
+        return ans.reverse().toString();
     }
 
-//    public String addBinary(String a, String b) {
-//        StringBuilder ans = new StringBuilder();
-//        int ca = 0;
-//        for(int i = a.length() - 1, j = b.length() - 1;i >= 0 || j >= 0; i--, j--) {
-//            int sum = ca;
-//            sum += i >= 0 ? a.charAt(i) - '0' : 0;
-//            sum += j >= 0 ? b.charAt(j) - '0' : 0;
-//            ans.append(sum % 2);
-//            ca = sum / 2;
-//        }
-//        ans.append(ca == 1 ? ca : "");
-//        return ans.reverse().toString();
-//    }
+    //给你一个非负整数 x ，计算并返回 x 的 算术平方根 。
+    //由于返回类型是整数，结果只保留 整数部分 ，小数部分将被 舍去 。
+    //注意：不允许使用任何内置指数函数和算符，例如 pow(x, 0.5) 或者 x ** 0.5 。
+
 
 }
