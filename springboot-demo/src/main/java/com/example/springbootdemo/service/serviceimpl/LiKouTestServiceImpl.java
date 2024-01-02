@@ -81,6 +81,9 @@ public class LiKouTestServiceImpl implements LiKouTestService {
 //            carry = sum / 2;
 //        }
 //        if (carry != 0) {
+    //         * StringBuffer的insert()方法
+    //         * 语法格式:
+    //         * 字符串.insert(位置,参数);
 //            sb.insert(0, carry);
 //        }
 //        return sb.toString();
@@ -99,16 +102,19 @@ public class LiKouTestServiceImpl implements LiKouTestService {
             // 而s.charAt（1）是1，对应的ASCII码为49，以此只有减去48，才能得到第一个数：1;
             sum += i >= 0 ? a.charAt(i) - '0' : 0;
             sum += j >= 0 ? b.charAt(j) - '0' : 0;
-            //StringBuffer.append()追加的字符串在同一个内存地址 例如：aa,bb,cc-> aabbcc
-            //java中的算数运算符
-            //sum % 2对2取余，获取当前位数的值
-            ans.append(sum % 2);
-            //sum / 2对2取值，获取前进一位的值
+//            StringBuffer.append()追加的字符串在同一个内存地址 例如：aa,bb,cc-> aabbcc
+//            java中的算数运算符
+//            sum % 2对2取余，获取当前位数的值
+//            ans.append(sum % 2);
+            ans.insert(0,sum % 2);
+            // sum / 2对2取值，获取前进一位的值
             ca = sum / 2;
         }
-        ans.append(ca == 1 ? ca : "");
+//        ans.append(ca == 1 ? ca : "");
+        ans.insert(0,ca == 1 ? ca : "");
         //字符串实现反转
-        return ans.reverse().toString();
+//        return ans.reverse().toString();
+        return ans.toString();
     }
 
     //给你一个非负整数 x ，计算并返回 x 的 算术平方根 。
