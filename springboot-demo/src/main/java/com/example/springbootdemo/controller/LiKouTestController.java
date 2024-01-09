@@ -1,8 +1,8 @@
 package com.example.springbootdemo.controller;
 
 import com.example.springbootdemo.service.LiKouTestService;
+import com.example.springbootdemo.service.serviceimpl.LiKouTestServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,5 +27,10 @@ public class LiKouTestController {
     @PostMapping("/test3")
     public String addBinary(String a, String b) {
         return liKouTestService.addBinary(a, b);
+    }
+
+    @PostMapping("/test4")
+    public LiKouTestServiceImpl.ListNode deleteDuplicates(LiKouTestServiceImpl.ListNode head){
+        return liKouTestService.deleteDuplicates(head);
     }
 }

@@ -117,9 +117,47 @@ public class LiKouTestServiceImpl implements LiKouTestService {
         return ans.toString();
     }
 
-    //给你一个非负整数 x ，计算并返回 x 的 算术平方根 。
-    //由于返回类型是整数，结果只保留 整数部分 ，小数部分将被 舍去 。
-    //注意：不允许使用任何内置指数函数和算符，例如 pow(x, 0.5) 或者 x ** 0.5 。
+    //给定一个已排序的链表的头 head ， 删除所有重复的元素，使每个元素只出现一次 。返回 已排序的链表 。
+    //由于给定的链表是排好序的，因此重复的元素在链表中出现的位置是连续的
+    //只需要对链表进行一次遍历，就可以删除重复的元素
+
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
+
+    @Override
+    public ListNode deleteDuplicates(ListNode head) {
+        if (head == null) {
+            return head;
+        }
+
+        //指针 cur指向链表的头节点，随后开始对链表进行遍历
+        ListNode cur = head;
+        while (cur.next != null) {
+            //如果当前cur与cur.next对应的元素相同，那么我们就将cur.next从链表中移除
+            if (cur.val == cur.next.val) {
+                cur.next = cur.next.next;
+            } else {
+                //否则说明链表中已经不存在其它与cur对应的元素相同的节点，因此可以将cur指向cur.next
+                cur = cur.next;
+            }
+        }
+        //当遍历完整个链表后，我们返回链表的头结点即可
+        return head;
+    }
 
 
 }
