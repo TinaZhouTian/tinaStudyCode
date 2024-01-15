@@ -10,4 +10,6 @@ public interface LiKouTestService {
     String addBinary(String a, String b);
 
     LiKouTestServiceImpl.ListNode deleteDuplicates(LiKouTestServiceImpl.ListNode head);
+
+    void merge(int[] nums1, int m, int[] nums2, int n);
 }

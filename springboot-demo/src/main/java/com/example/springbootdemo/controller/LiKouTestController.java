@@ -30,7 +30,13 @@ public class LiKouTestController {
     }
 
     @PostMapping("/test4")
-    public LiKouTestServiceImpl.ListNode deleteDuplicates(LiKouTestServiceImpl.ListNode head){
+    public LiKouTestServiceImpl.ListNode deleteDuplicates(LiKouTestServiceImpl.ListNode head) {
         return liKouTestService.deleteDuplicates(head);
     }
+
+    @PostMapping("/test5")
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        liKouTestService.merge(nums1, m, nums2, n);
+    }
+
 }

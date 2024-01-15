@@ -92,7 +92,7 @@ public class LiKouTestServiceImpl implements LiKouTestService {
     public String addBinary(String a, String b) {
         StringBuffer ans = new StringBuffer();
         int ca = 0;
-        for(int i = a.length() - 1, j = b.length() - 1;i >= 0 || j >= 0; i--, j--) {
+        for (int i = a.length() - 1, j = b.length() - 1; i >= 0 || j >= 0; i--, j--) {
             int sum = ca;
             //charAt () 方法用于返回指定索引处的字符。 索引范围为从 0 到 length () - 1;
             // char字符运算与数形运算不同，char运算用到的是ASCII码,字符0-9的ASCII码：48-57;
@@ -106,12 +106,12 @@ public class LiKouTestServiceImpl implements LiKouTestService {
 //            java中的算数运算符
 //            sum % 2对2取余，获取当前位数的值
 //            ans.append(sum % 2);
-            ans.insert(0,sum % 2);
+            ans.insert(0, sum % 2);
             // sum / 2对2取值，获取前进一位的值
             ca = sum / 2;
         }
 //        ans.append(ca == 1 ? ca : "");
-        ans.insert(0,ca == 1 ? ca : "");
+        ans.insert(0, ca == 1 ? ca : "");
         //字符串实现反转
 //        return ans.reverse().toString();
         return ans.toString();
@@ -151,7 +151,7 @@ public class LiKouTestServiceImpl implements LiKouTestService {
             if (cur.val == cur.next.val) {
                 cur.next = cur.next.next;
             } else {
-                //否则说明链表中已经不存在其它与cur对应的元素相同的节点，因此可以将cur指向cur.next
+                //否则说明链表中已经不存在其它与cur对应的元素相同的节点，-----.next
                 cur = cur.next;
             }
         }
@@ -159,5 +159,31 @@ public class LiKouTestServiceImpl implements LiKouTestService {
         return head;
     }
 
+    //给你两个按 非递减顺序 排列的整数数组 nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。
+    //请你 合并 nums2 到 nums1 中，使合并后的数组同样按非递减顺序 排列。
+    //注意：最终，合并后数组不应由函数返回，而是存储在数组 nums1 中。
+    //为了应对这种情况，nums1 的初始长度为 m + n，其中前 m 个元素表示应合并的元素，后 n 个元素为 0 ，应忽略。nums2 的长度为 n。
+    //最直观的方法是先将数组 nums2放进数据nums1的尾部，然后对整个数组进行排序
+    @Override
+//    public void merge(int[] nums1, int m, int[] nums2, int n) {
+//        for (int i = 0; i != n; ++i) {
+//            nums1[m + i] = nums2[i];
+//        }
+//        Arrays.sort(nums1);
+//    }
+
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        //第一个数组的长度
+        int len1 = m-1;
+        //第二个数组的长度
+        int len2 = n-1;
+        //合并后数组的长度
+        int len = m+n-1;
+        while(len1 >= 0 && len2>=0){
+            //合并后的数组
+            nums1[len--] = nums1[len1] > nums2[len2] ? nums1[len1--] : nums2[len2--];
+        }
+        System.arraycopy(nums2, 0, nums1, 0, len2 + 1);
+    }
 
 }
