@@ -1,7 +1,5 @@
 package com.example.springbootdemo.dto;
 
-import com.example.springbootdemo.service.serviceimpl.LiKouTestServiceImpl;
-
 public class ListNode {
     public int val;
     public ListNode next;
