@@ -1,7 +1,7 @@
 package com.example.springbootdemo.controller;
 
+import com.example.springbootdemo.dto.ListNode;
 import com.example.springbootdemo.service.LiKouTestService;
-import com.example.springbootdemo.service.serviceimpl.LiKouTestServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +30,7 @@ public class LiKouTestController {
     }
 
     @PostMapping("/test4")
-    public LiKouTestServiceImpl.ListNode deleteDuplicates(LiKouTestServiceImpl.ListNode head) {
+    public ListNode deleteDuplicates(ListNode head) {
         return liKouTestService.deleteDuplicates(head);
     }
 
@@ -38,5 +38,4 @@ public class LiKouTestController {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         liKouTestService.merge(nums1, m, nums2, n);
     }
-
 }

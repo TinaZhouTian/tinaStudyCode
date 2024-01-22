@@ -1,5 +1,6 @@
 package com.example.springbootdemo.service.serviceimpl;
 
+import com.example.springbootdemo.dto.ListNode;
 import com.example.springbootdemo.service.LiKouTestService;
 import org.springframework.stereotype.Service;
 
@@ -7,6 +8,8 @@ import java.util.Arrays;
 
 @Service
 public class LiKouTestServiceImpl implements LiKouTestService {
+
+    //算法相关
 
     @Override
     //给你一个字符串 s，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中 最后一个 单词的长度。
@@ -120,23 +123,6 @@ public class LiKouTestServiceImpl implements LiKouTestService {
     //给定一个已排序的链表的头 head ， 删除所有重复的元素，使每个元素只出现一次 。返回 已排序的链表 。
     //由于给定的链表是排好序的，因此重复的元素在链表中出现的位置是连续的
     //只需要对链表进行一次遍历，就可以删除重复的元素
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 
     @Override
     public ListNode deleteDuplicates(ListNode head) {
