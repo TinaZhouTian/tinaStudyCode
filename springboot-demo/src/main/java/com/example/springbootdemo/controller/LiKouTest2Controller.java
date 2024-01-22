@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("LiKouTest")
+@RequestMapping("LiKouTest2")
 public class LiKouTest2Controller {
 
     @Autowired
